@@ -63,6 +63,8 @@ jobs:
         export FOX_REMOVE_AAPT=1
         export TARGET_ARCH=arm
         export OF_MAINTAINER="notnoelchannel"
+        export PATH="/opt/toolchains/arm-eabi-4.8/bin:$PATH"
+        export CROSS_COMPILE=arm-eabi-
         mkdir -p /home/runner/TWRP/out/host/linux-x86/bin/ 
         curl -L -o /home/runner/TWRP/out/host/linux-x86/bin/dtbToolCM https://github.com/Vagelis1608/-V-_Kernel_X/raw/refs/heads/cm-14.1/dtbToolCM
         chmod +x /home/runner/TWRP/out/host/linux-x86/bin/dtbToolCM
