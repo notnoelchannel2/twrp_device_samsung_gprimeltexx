@@ -40,8 +40,7 @@ jobs:
         mkdir ~/.bin
         curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
         python3 ~/.bin/repo init --depth=1 -u https://github.com/unlegacy-devices/fox-7.1_manifest -b twrp-7.1
-        sudo git clone --depth 1 --branch android-6.0.1_r5 --single-branch https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/ /opt/toolchains/arm-linux-androideabi-4.9/
-        git clone --branch twrp-6.0 --single-branch https://github.com/notnoelchannel2/twrp_device_samsung_gprimeltexx.git ~/TWRP/device/samsung/gprimeltexx
+        sudo git clone --depth 1 --branch android-5.1.1_r38 --single-branch https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8 /opt/toolchains/arm-eabi-4.8/        git clone --branch twrp-6.0 --single-branch https://github.com/notnoelchannel2/twrp_device_samsung_gprimeltexx.git ~/TWRP/device/samsung/gprimeltexx
         python3 ~/.bin/repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
     - name: Building TWRP
       run: |
@@ -54,8 +53,6 @@ jobs:
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         export ARCH=arm
-        export PATH="/opt/toolchains/arm-linux-androideabi-4.9/bin:$PATH"
-        export CROSS_COMPILE=arm-linux-androideabi-
         export LC_ALL=C
         export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
         export OF_DISABLE_MIUI_SPECIFIC_FEATURES=1
